@@ -1,0 +1,51 @@
+<div class="container-fluid">
+  <div class="row location">
+    <div class="col-lg-6 location__data">
+      <form [formGroup]="locationForm">
+        <div class="row">
+          <h2>STATES: </h2>
+          <br />
+          <select
+            id="state"
+            (change)="onStateSelect()"
+            formControlName="state"
+            class="form-control location__state"
+          >
+            <option
+              *ngFor="let location of locationList"
+              [value]="location.state"
+            >
+              {{ location.state }}
+            </option>
+          </select>
+        </div>
+        <div class="row district">
+          <h2>DISTRICTS</h2>
+          <table class="table">
+            <tr>
+              <th scope="col">SR</th>
+              <th scope="col">Districts</th>
+            </tr>
+            <tr *ngFor="let city of districts; let i = index">
+              <td>{{i + 1}}</td>
+              <th>{{ city }}</th>
+            </tr>
+          </table>
+        </div>
+      </form>
+    </div>
+    <div class="col-lg-6 location__map">
+      <agm-map [latitude]="lat" [longitude]="lng">
+        <agm-marker
+          *ngFor="let city of arrDistrict"
+          [latitude]="city.lat"
+          [longitude]="city.lng"
+        >
+          <agm-info-window #infoWindow>
+            {{ city.label }}
+          </agm-info-window>
+        </agm-marker>
+      </agm-map>
+    </div>
+  </div>
+</div>

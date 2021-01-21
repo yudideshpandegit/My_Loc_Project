@@ -1,0 +1,28 @@
+ 
+.form-control {
+  width: 60% !important;
+}
+
+.location {
+  height: max-content;
+  padding: 40px;
+}
+
+.district {
+  margin-top: 50px;
+}
+
+.location__data {
+  height: 100vh !important;
+  overflow: auto;
+}
+
+.location__map > agm-map{
+  padding: 0 !important;
+  width: 100%;
+  height: 100vh !important;
+}
+
+.location__state{
+  margin-left: 200px;
+}
